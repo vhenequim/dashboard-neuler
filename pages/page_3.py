@@ -37,7 +37,7 @@ sheet_controle = 'Controle'
 
 # @st.cache_data
 def load_data_master():
-    df = pd.read_excel(r"data\MasterFIA.xlsm", sheet_name=sheet_controle, usecols='I:L', header=2)
+    df = pd.read_excel(os.path.join(BASE_DIR, "..", "data", "MasterFIA.xlsm"), sheet_name=sheet_controle, usecols='I:L', header=2)
     df.dropna(inplace=True)
     df_polars = pl.from_pandas(df)
     dataf = df_polars.with_columns(
