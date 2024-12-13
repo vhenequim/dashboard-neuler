@@ -39,6 +39,7 @@ except LoginError as e:
 
 if st.session_state["authentication_status"]:
     st.write('___')
+    st.write('Bem-vindo(a), ' + st.session_state["name"])
     authenticator.logout()
 
 elif st.session_state["authentication_status"] is False:
