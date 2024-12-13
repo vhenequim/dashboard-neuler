@@ -61,6 +61,8 @@ st.write('## Master')
 
 dataf_master = load_data_master()
 
+edited_df = st.experimental_data_editor(dataf_master)
+
 st.dataframe(
     dataf_master,
     use_container_width=True,
