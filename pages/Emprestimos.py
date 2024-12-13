@@ -20,6 +20,5 @@ df_emprestimos_table = pl.read_database("select * from emprestimos_table", conne
 if st.session_state["authentication_status"]:   
     st.dataframe(df_emprestimos_table, use_container_width=True, width=15000)
     st.write(df_emprestimos_table)
-    st.table(df_emprestimos_table)
 else:
     st.error('Você não está logado')

@@ -47,5 +47,5 @@ elif st.session_state["authentication_status"] is None:
     st.warning('Please enter your username and password')
 
 # Saving config file
-with open('config.yaml', 'w', encoding='utf-8') as file:
+with open('data/config.yaml', 'w', encoding='utf-8') as file:
     yaml.dump(config, file, default_flow_style=False)
