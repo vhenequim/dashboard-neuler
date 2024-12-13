@@ -11,6 +11,15 @@ credentials:
       last_name: Henequim
       logged_in: false
       password: 1234562s
+      role: admin
+    dadler:
+      email: dadlery@neuler.com.br
+      failed_login_attempts: 0
+      first_name: Danny
+      last_name: Adler
+      logged_in: false
+      password: abc123
+      role: admin
     jsmith:
       email: jsmith@gmail.com
       failed_login_attempts: 0
