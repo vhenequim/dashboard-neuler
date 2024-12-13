@@ -5,3 +5,8 @@ numpy
 openpyxl
 nbformat
 nbconvert
+streamlit_authenticator
+extra-streamlit-components
+PyYAML
+PyJWT
+bcrypt
