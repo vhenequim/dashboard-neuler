@@ -64,45 +64,11 @@ if st.session_state["authentication_status"]:
     dataf_master = dataf_master.with_columns(
         (pl.col('House') - pl.col('BTG')).alias('Diferença')
     )
-
-    # Add this CSS styling
-    st.markdown("""
-    <style>
-        .stDataFrame table {
-            background-color: #002327;
-            color: #f1bf91;
-        }
-        .stDataFrame td {
-            background-color: #f2f2f2;
-            color: black;
-        }
-        .stDataFrame tr:nth-child(even) td {
-            background-color: #f9f9f9;
-        }
-        .stDataFrame tr:last-child td {
-            background-color: #002327;
-            color: #f1bf91;
-        }
-    </style>
-    """, unsafe_allow_html=True)
-
-    # Your existing data editor code with added styling
-    edited_df = st.data_editor(
-        dataf_master,
-        use_container_width=True,
-        hide_index=True,
-        height=600,
-        column_config={
-            "Diferença (%)": st.column_config.NumberColumn(
-                format="%.2f%%",
-            ),
-        },
-        # Add custom styling through the data editor
-        style={
-            "backgroundColor": "#002327",
-            "color": "#f1bf91",
-        }
-    )
+    dataf_master = st.data_editor(dataf_master,
+                use_container_width=True,
+                hide_index=True,
+                height=600,
+                )
 
 
     dataf_fic = load_data_fic()

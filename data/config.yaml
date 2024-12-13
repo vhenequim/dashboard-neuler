@@ -4,21 +4,13 @@ cookie:
   name: some_cookie_name
 credentials:
   usernames:
-    vhenequim:
-      email: vhenequim@gmail.com
-      failed_login_attempts: 0
-      first_name: Vinicius
-      last_name: Henequim
-      logged_in: false
-      password: 1234562s
-      role: admin
     dadler:
       email: dadlery@neuler.com.br
       failed_login_attempts: 0
       first_name: Danny
       last_name: Adler
       logged_in: false
-      password: abc123
+      password: $2b$12$XLtA.oNgZ.bJvQW.d8TcA.gbhqn/Jwbae1hjZfO.u9uBeT9u5A5gi
       role: admin
     jsmith:
       email: jsmith@gmail.com
@@ -34,6 +26,14 @@ credentials:
       last_name: Briggs
       logged_in: false
       password: $2b$12$uNaTgvGPG9rMbzOJHYaPQePw0DUfp1qHBrSq6l4O304qani6pKFpm
+    vhenequim:
+      email: vhenequim@gmail.com
+      failed_login_attempts: 0
+      first_name: Vinicius
+      last_name: Henequim
+      logged_in: true
+      password: $2b$12$92t3rQAJy4TbB.EvATolReWQczKn2FDPO35s.P0fZtqPuvlkqXRvG
+      role: admin
 pre-authorized:
   emails:
-    - melsby@gmail.com
+  - melsby@gmail.com
