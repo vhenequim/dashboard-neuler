@@ -15,15 +15,13 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Define paths relative to the base directory
-path_BO_Master = os.path.join(BASE_DIR, "data", "MasterFIA.xlsm")
-path_BO_FIC = os.path.join(BASE_DIR, "data", "FICFIA.xlsm")
-path_BO_HSF = os.path.join(BASE_DIR, "data", "HSF.xlsm")
+path_BO_Master = os.path.join(BASE_DIR, "..", "data", "MasterFIA.xlsm")
+path_BO_FIC = os.path.join(BASE_DIR, "..", "data", "FICFIA.xlsm")
+path_BO_HSF = os.path.join(BASE_DIR, "..", "data", "HSF.xlsm")
 
 # For SQLite
-db_path = os.path.join(BASE_DIR, "data", "emprestimos_log.db")
+db_path = os.path.join(BASE_DIR, "..", "data", "emprestimos_log.db")
 conn = sqlite3.connect(db_path)
-
-conn = sqlite3.connect("Y:\Cod_Neuler_Labs_Org\Rotinas Operacionais\Carteira\emprestimos\common\emprestimos_log.db")
 df_emprestimos_table = pl.read_database("select * from emprestimos_table", connection=conn)
 
 

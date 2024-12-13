@@ -14,30 +14,20 @@ import os
 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-st.write(f"Base Directory: {BASE_DIR}")
-
 # Define paths and print them for debugging
-path_BO_Master = os.path.join(BASE_DIR, "data", "MasterFIA.xlsm")
-path_BO_FIC = os.path.join(BASE_DIR, "data", "FICFIA.xlsm")
-path_BO_HSF = os.path.join(BASE_DIR, "data", "HSF.xlsm")
+path_BO_Master = os.path.join(BASE_DIR, "..", "data", "MasterFIA.xlsm")
+path_BO_FIC = os.path.join(BASE_DIR, "..", "data", "FICFIA.xlsm")
+path_BO_HSF = os.path.join(BASE_DIR, "..", "data", "HSF.xlsm")
 
-st.write(f"Master path: {path_BO_Master}")
-st.write(f"FIC path: {path_BO_FIC}")
-st.write(f"HSF path: {path_BO_HSF}")
-
-# Check if files exist
-st.write(f"Master exists: {os.path.exists(path_BO_Master)}")
-st.write(f"FIC exists: {os.path.exists(path_BO_FIC)}")
-st.write(f"HSF exists: {os.path.exists(path_BO_HSF)}")
 # For SQLite
-db_path = os.path.join(BASE_DIR, "data", "emprestimos_log.db")
+db_path = os.path.join(BASE_DIR, "..", "data", "emprestimos_log.db")
 sheet_emprestimos = 'Emprestimos_teste'
 sheet_controle = 'Controle'
 
 
 # @st.cache_data
 def load_data_master():
-    df = pd.read_excel(os.path.join(BASE_DIR, "..", "data", "MasterFIA.xlsm"), sheet_name=sheet_controle, usecols='I:L', header=2)
+    df = pd.read_excel(path_BO_Master, sheet_name=sheet_controle, usecols='I:L', header=2)
     df.dropna(inplace=True)
     df_polars = pl.from_pandas(df)
     dataf = df_polars.with_columns(
@@ -47,7 +37,7 @@ def load_data_master():
     return dataf
 
 def load_data_fic():
-    df = pd.read_excel(r"data\FICFIA.xlsm", sheet_name=sheet_controle, usecols='I:L', header=2)
+    df = pd.read_excel(path_BO_FIC, sheet_name=sheet_controle, usecols='I:L', header=2)
     df.dropna(inplace=True)
     df_polars = pl.from_pandas(df)
     dataf = df_polars.with_columns(
@@ -57,7 +47,7 @@ def load_data_fic():
     return dataf
 
 def load_data_hsf():
-    df = pd.read_excel(r"data\HSF.xlsm", sheet_name=sheet_controle, usecols='I:L', header=2)
+    df = pd.read_excel(path_BO_HSF, sheet_name=sheet_controle, usecols='I:L', header=2)
     df.dropna(inplace=True)
     df_polars = pl.from_pandas(df)
     dataf = df_polars.with_columns(
