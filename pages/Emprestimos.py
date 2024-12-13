@@ -7,10 +7,6 @@ from nbconvert.preprocessors import ExecutePreprocessor
 st.markdown("# Emprestimos")
 st.sidebar.markdown("# Emprestimos")
 
-if st.button('Atualizar'):
-    st.write('Atualizando...')
-else:
-    st.write('Atualizado')
 import os
 
 # Get the current directory
@@ -21,6 +17,9 @@ db_path = os.path.join(BASE_DIR, "..", "data", "emprestimos_log.db")
 conn = sqlite3.connect(db_path)
 df_emprestimos_table = pl.read_database("select * from emprestimos_table", connection=conn)
 
-st.dataframe(df_emprestimos_table, use_container_width=True, width=15000)
-st.write(df_emprestimos_table)
-st.table(df_emprestimos_table)
+if st.session_state["authentication_status"]:   
+    st.dataframe(df_emprestimos_table, use_container_width=True, width=15000)
+    st.write(df_emprestimos_table)
+    st.table(df_emprestimos_table)
+else:
+    st.error('Você não está logado')

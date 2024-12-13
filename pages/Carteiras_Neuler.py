@@ -100,3 +100,5 @@ if st.session_state["authentication_status"]:
             height=600,
             width=1000
         )
+else:
+    st.error('Você não está logado')
