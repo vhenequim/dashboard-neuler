@@ -12,14 +12,23 @@ import sqlite3
 
 import os
 
-# Get the current directory
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Define paths relative to the base directory
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+st.write(f"Base Directory: {BASE_DIR}")
+
+# Define paths and print them for debugging
 path_BO_Master = os.path.join(BASE_DIR, "data", "MasterFIA.xlsm")
 path_BO_FIC = os.path.join(BASE_DIR, "data", "FICFIA.xlsm")
 path_BO_HSF = os.path.join(BASE_DIR, "data", "HSF.xlsm")
 
+st.write(f"Master path: {path_BO_Master}")
+st.write(f"FIC path: {path_BO_FIC}")
+st.write(f"HSF path: {path_BO_HSF}")
+
+# Check if files exist
+st.write(f"Master exists: {os.path.exists(path_BO_Master)}")
+st.write(f"FIC exists: {os.path.exists(path_BO_FIC)}")
+st.write(f"HSF exists: {os.path.exists(path_BO_HSF)}")
 # For SQLite
 db_path = os.path.join(BASE_DIR, "data", "emprestimos_log.db")
 sheet_emprestimos = 'Emprestimos_teste'
