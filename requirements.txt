@@ -4,3 +4,4 @@ polars
 numpy
 openpyxl
 nbformat
+nbconvert
