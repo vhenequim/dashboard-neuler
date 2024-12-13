@@ -37,7 +37,7 @@ sheet_controle = 'Controle'
 
 # @st.cache_data
 def load_data_master():
-    df = pd.read_excel("data\MasterFIA.xlsm", sheet_name=sheet_controle, usecols='I:L', header=2)
+    df = pd.read_excel(r"data\MasterFIA.xlsm", sheet_name=sheet_controle, usecols='I:L', header=2)
     df.dropna(inplace=True)
     df_polars = pl.from_pandas(df)
     dataf = df_polars.with_columns(
@@ -47,7 +47,7 @@ def load_data_master():
     return dataf
 
 def load_data_fic():
-    df = pd.read_excel(path_BO_FIC, sheet_name=sheet_controle, usecols='I:L', header=2)
+    df = pd.read_excel(r"data\FICFIA.xlsm", sheet_name=sheet_controle, usecols='I:L', header=2)
     df.dropna(inplace=True)
     df_polars = pl.from_pandas(df)
     dataf = df_polars.with_columns(
@@ -57,7 +57,7 @@ def load_data_fic():
     return dataf
 
 def load_data_hsf():
-    df = pd.read_excel(path_BO_HSF, sheet_name=sheet_controle, usecols='I:L', header=2)
+    df = pd.read_excel(r"data\HSF.xlsm", sheet_name=sheet_controle, usecols='I:L', header=2)
     df.dropna(inplace=True)
     df_polars = pl.from_pandas(df)
     dataf = df_polars.with_columns(
