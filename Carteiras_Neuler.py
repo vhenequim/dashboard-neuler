@@ -15,12 +15,12 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # Define paths and print them for debugging
-path_BO_Master = os.path.join(BASE_DIR, "..", "data", "MasterFIA.xlsm")
-path_BO_FIC = os.path.join(BASE_DIR, "..", "data", "FICFIA.xlsm")
-path_BO_HSF = os.path.join(BASE_DIR, "..", "data", "HSF.xlsm")
+path_BO_Master = os.path.join(BASE_DIR, "data", "MasterFIA.xlsm")
+path_BO_FIC = os.path.join(BASE_DIR, "data", "FICFIA.xlsm")
+path_BO_HSF = os.path.join(BASE_DIR, "data", "HSF.xlsm")
 
 # For SQLite
-db_path = os.path.join(BASE_DIR, "..", "data", "emprestimos_log.db")
+db_path = os.path.join(BASE_DIR, "data", "emprestimos_log.db")
 sheet_emprestimos = 'Emprestimos_teste'
 sheet_controle = 'Controle'
 
