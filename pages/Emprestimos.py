@@ -16,9 +16,12 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 db_path = os.path.join(BASE_DIR, "..", "data", "emprestimos_log.db")
 conn = sqlite3.connect(db_path)
 df_emprestimos_table = pl.read_database("select * from emprestimos_table", connection=conn)
+df_emprestimos_situacao = pl.read_database("select * from emprestimos_tudao", connection=conn)
 
 if st.session_state["authentication_status"]:   
     st.dataframe(df_emprestimos_table, use_container_width=True, width=15000)
     st.write(df_emprestimos_table)
+    st.markdown("## Emprestimos situação")
+    st.dataframe(df_emprestimos_situacao, use_container_width=True, width=15000)
 else:
     st.error('Você não está logado')
